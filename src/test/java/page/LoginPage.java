@@ -4,17 +4,17 @@ import base.BasePage;
 import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
-    private final By pageLogin = By.xpath("//h1");
-    private final By userName = By.xpath("//input[@name='username']");
-    private final By password = By.xpath("//input[@name='password']");
+    private final By pageLogin = By.cssSelector("h1");
+    private final By userName = By.cssSelector("input[name='username']");
+    private final By password = By.cssSelector("input[name='password']");
 
-    private final By pageInvoiceList = By.xpath("//h2[@class='mt-5']");
+    private final By pageInvoiceList = By.className("mt-5");
 
     private final By logout = By.linkText("Logout");
 
     private final By buttonLogin = By.id("btnLogin");
 
-    private final By alertDanger = By.xpath("//*[@class='alert alert-danger mt-3']");
+    private final By alertDanger = By.cssSelector(".alert.alert-danger.mt-3");
 
     public String showPage(){
         return obterValorPorTexto(pageLogin);
