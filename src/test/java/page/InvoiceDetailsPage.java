@@ -3,9 +3,6 @@ package page;
 import base.BasePage;
 import org.openqa.selenium.By;
 
-import java.util.Arrays;
-import java.util.List;
-
 
 public class InvoiceDetailsPage extends BasePage {
     private final By invoce = By.cssSelector("body > section > div > div:nth-child(3) > div:nth-child(5) > a");
@@ -15,8 +12,16 @@ public class InvoiceDetailsPage extends BasePage {
     private  final By dateDue = By.cssSelector("body > section > div > ul > li:nth-child(2)");
     private  final By invoceNumber = By.cssSelector("body > section > div > h6");
     private final By numberBooking = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(1) > td:nth-child(2)");
-
     private final By customDetails = By.cssSelector("body > section > div > div");
+    private final By superiorDouble = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(2) > td:nth-child(2)");
+    private final By checkinDate = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(5) > td:nth-child(2)");
+    private final By checkoutDate = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(6) > td:nth-child(2)");
+    private final By stayCount = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(3) > td:nth-child(2)");
+    private final By stayAmount = By.cssSelector("body > section > div > table:nth-child(8) > tbody > tr:nth-child(4) > td:nth-child(2)");
+    private final By depositNow = By.cssSelector("body > section > div > table:nth-child(12) > tbody > tr > td:nth-child(1)");
+    private final By taxVat = By.cssSelector("body > section > div > table:nth-child(12) > tbody > tr > td:nth-child(2)");
+    private final By totalAmount = By.cssSelector("body > section > div > table:nth-child(12) > tbody > tr > td:nth-child(3)");
+
     public void firtItem(){
         clicar(invoce);
         novaAba();
@@ -47,10 +52,31 @@ public class InvoiceDetailsPage extends BasePage {
     }
 
     public String customDetails(){
-
-        String primeiroNome = obterValor(customDetails).replace("\n", " ");
-        return primeiroNome;
-
+    return obterValorPorTexto(customDetails).replace("\n", " ");
+    }
+    public String superiorDouble(){
+        return obterValorPorTexto(superiorDouble);
+    }
+    public String checkInDate(){
+        return obterValorPorTexto(checkinDate);
+    }
+    public String checkOutDate(){
+        return obterValorPorTexto(checkoutDate);
+    }
+    public String stayCount(){
+        return obterValorPorTexto(stayCount);
+    }
+    public String stayAmount(){
+        return obterValorPorTexto(stayAmount);
+    }
+    public String depositNow(){
+        return obterValorPorTexto(depositNow);
+    }
+    public String taxVat(){
+        return obterValorPorTexto(taxVat);
+    }
+    public boolean totalAmount(){
+        return obterValorExistente(obterValorPorTexto(totalAmount));
     }
 
 }
