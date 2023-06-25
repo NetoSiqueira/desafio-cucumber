@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/feature/Login.feature",
+        features = "src/test/feature/InvoiceDetails.feature",
         glue = "steps",
 //        tags = ("not @ignore"),
         plugin = {"pretty", "html:target/report-hmtl.html", "json:target/report.json"},

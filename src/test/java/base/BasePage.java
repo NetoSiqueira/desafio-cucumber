@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static core.DriverFactory.getDriver;
@@ -69,6 +71,23 @@ public class BasePage {
         return valor;
     }
 
+    public String posicaoTexto(String texto, String separacao, int posicao){
+
+        List<String> nomes = Arrays.asList(texto.split(separacao));
+        String primeiroNome = nomes.get(posicao);
+        return primeiroNome;
+    }
+    public String posicaoTextoStringEspecifica(String texto, String separacao, int posicao, int posicaoString){
+
+        List<String> nomes = Arrays.asList(texto.split(separacao));
+        String primeiroNome = nomes.get(posicao).substring(posicaoString);
+        return primeiroNome;
+    }
+
+    public void novaAba(){
+        List<String> windowHandles = new ArrayList<>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(windowHandles.get(1));
+    }
     public void clicarAlerta(){
         Alert alert = getDriver().switchTo().alert();
         alert.accept();

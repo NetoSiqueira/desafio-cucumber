@@ -29,7 +29,7 @@ public class LoginSteps   {
     @Then("the application show the page Invoice List")
     public void theApplicationShowThePageInvoiceList() {
         Assert.assertEquals(page.pageInvoiceList(), "Invoice List");
-        page.logout();
+//        page.logout();
     }
 
     @Then("the application shows the message: {string}")
