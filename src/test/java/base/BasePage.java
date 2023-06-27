@@ -88,6 +88,11 @@ public class BasePage {
         List<String> windowHandles = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(windowHandles.get(1));
     }
+
+    public void voltarAba(){
+        List<String> windowHandles = new ArrayList<>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(windowHandles.get(0));
+    }
     public void clicarAlerta(){
         Alert alert = getDriver().switchTo().alert();
         alert.accept();

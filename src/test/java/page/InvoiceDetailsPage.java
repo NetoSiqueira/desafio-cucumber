@@ -73,10 +73,11 @@ public class InvoiceDetailsPage extends BasePage {
         return obterValorPorTexto(depositNow);
     }
     public String taxVat(){
-        return obterValorPorTexto(taxVat);
+        return obterValorPorTexto(taxVat)+".00";
     }
-    public boolean totalAmount(){
-        return obterValorExistente(obterValorPorTexto(totalAmount));
+    public String totalAmount(){
+        return obterValorPorTexto(totalAmount)+".00";
+
     }
 
 }

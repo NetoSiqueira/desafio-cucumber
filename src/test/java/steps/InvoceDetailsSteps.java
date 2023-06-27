@@ -4,10 +4,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import page.InvoiceDetailsPage;
+import page.LoginPage;
 
 public class InvoceDetailsSteps {
 
     private InvoiceDetailsPage page = new InvoiceDetailsPage();
+    private LoginPage loginPage = new LoginPage();
 
     @Given("to click the Invoice Details link for the first item presented in the screen")
     public void toClickTheInvoiceDetailsLinkForTheFirstItemPresentedInTheScreen() {
@@ -40,7 +42,7 @@ public class InvoceDetailsSteps {
     @When("validation the Customer Details: {string}")
     public void validationTheCustomerDetails(String string) {
 //        System.out.println(page.obterValorPorTexto(page.customDetails).replace("\n", " "));
-//        System.out.println(page.customDetails());
+        System.out.println(page.customDetails());
 //       Assert.assertTrue(page.customDetails());
         Assert.assertEquals(string, page.customDetails());
     }
@@ -70,11 +72,13 @@ public class InvoceDetailsSteps {
     }
     @When("validation the Tax & VAT: {string}")
     public void validationTheTaxVAT(String string) {
-        Assert.assertEquals(string, page.taxVat());
+       Assert.assertEquals(string, page.taxVat());
     }
     @When("validation the Total Amount: {string}")
     public void validationTheTotalAmount(String string) {
-        System.out.println(page.totalAmount());
-        Assert.assertTrue(page.totalAmount());
+        Assert.assertEquals(string, page.totalAmount());
+        page.voltarAba();
+        loginPage.logout();
+
     }
 }
