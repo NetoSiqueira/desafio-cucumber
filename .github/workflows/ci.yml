@@ -56,5 +56,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-#      - name: Link Relatorio
-#        run: echo 'https://netosiqueira.github.io/Desafio-GroceryCrud/feature-overview.html'
+      - name: Link Relatorio
+        run: echo 'https://netosiqueira.github.io/desafio-cucumber/feature-overview.html'
