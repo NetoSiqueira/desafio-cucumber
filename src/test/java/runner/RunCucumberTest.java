@@ -7,14 +7,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/feature/",
+        features = "src/test/feature",
         glue = "steps",
 //        tags = ("not @ignore"),
-        plugin = {"pretty", "html:target/report-hmtl.html", "json:target/report.json"},
+        plugin = {"pretty", "html:target/cucumber-reports/cucumber-html-reports/index.html", "json:target/cucumber-reports/cucumber.json"},
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class Suite{
+public class RunCucumberTest {
 
 
 }
