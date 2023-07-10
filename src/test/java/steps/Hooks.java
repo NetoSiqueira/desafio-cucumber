@@ -4,35 +4,27 @@ import core.Propriedades;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.apache.commons.io.FileUtils;
-import org.junit.Rule;
-import org.junit.rules.TestName;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
-
 import static core.DriverFactory.*;
+import static core.Propriedades.screenshot;
 
 public class Hooks {
-    @Rule
-    public TestName testName = new TestName();
 
 
     @Before
-    public void iniciar(){
+    public void iniciar(Scenario _scenario){
+        Propriedades.scenario = _scenario;
         getDriver().get("https://automation-sandbox-python-mpywqjbdza-uc.a.run.app");
         wait = new WebDriverWait(getDriver(), 60);
     }
 
 
     @After
-    public void fechar(Scenario scenario) throws IOException {
-        TakesScreenshot screen = (TakesScreenshot) getDriver();
-        File arquivo =screen.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(arquivo, new File("target" + File.separator + "sreenshot" + File.separator  + scenario+ ".jpg"));
+    public void fechar(Scenario scenario)  {
+        if (Propriedades.scenario.isFailed()) {
+            screenshot();
+        }
         if (Propriedades.FECHAR_BROWSER)
             killDriver();
     }

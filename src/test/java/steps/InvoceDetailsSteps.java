@@ -6,6 +6,8 @@ import org.junit.Assert;
 import page.InvoiceDetailsPage;
 import page.LoginPage;
 
+import static core.Propriedades.screenshot;
+
 public class InvoceDetailsSteps {
 
     private InvoiceDetailsPage page = new InvoiceDetailsPage();
@@ -49,34 +51,42 @@ public class InvoceDetailsSteps {
     @When("validation the Room:{string}")
     public void validationTheRoom(String string) {
         Assert.assertEquals(string, page.superiorDouble());
+        screenshot();
     }
     @When("validation the Check In: {string}")
     public void validationTheCheckIn(String string) {
         Assert.assertEquals(string, page.checkInDate());
+        screenshot();
     }
     @When("validation the Check Out: {string}")
     public void validationTheCheckOut(String string) {
         Assert.assertEquals(string, page.checkOutDate());
+        screenshot();
     }
     @When("validation the Total Stay Count: {string}")
     public void validationTheTotalStayCount(String string) {
         Assert.assertEquals(string, page.stayCount());
+        screenshot();
     }
     @When("validation the Total Stay Amount: {string}")
     public void validationTheTotalStayAmount(String string) {
         Assert.assertEquals(string, page.stayAmount());
+        screenshot();
     }
     @When("validation the Deposit Now: {string}")
     public void validationTheDepositNow(String string) {
         Assert.assertEquals(string, page.depositNow());
+        screenshot();
     }
     @When("validation the Tax & VAT: {string}")
     public void validationTheTaxVAT(String string) {
        Assert.assertEquals(string, page.taxVat());
+        screenshot();
     }
     @When("validation the Total Amount: {string}")
     public void validationTheTotalAmount(String string) {
         Assert.assertEquals(string, page.totalAmount());
+        screenshot();
         page.voltarAba();
         loginPage.logout();
 
